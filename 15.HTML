@@ -1,31 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <title>mark</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <style>
-        div {
-            width: 500px;
-            height: 300px;
-            background-color: yellow;
-            border: 1px solid black;
+        body {
+            background: linear-gradient(to right, #0f172a, #1e3a8a);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px;
+            color: #e5e7eb;
         }
 
-        #mydiv {
-            transform: rotateX(180deg);
+        h1 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #cbd5f5;
+        }
+
+        .container {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+        }
+
+        hr {
+            border: 1px solid #475569;
+        }
+
+        mark {
+            background-color: #facc15;
+            color: #000;
+            padding: 3px 6px;
+            border-radius: 5px;
+        }
+
+        code {
+            background: #1e293b;
+            padding: 4px 7px;
+            border-radius: 5px;
+            color: #22c55e;
+        }
+
+        pre {
+            background: #020617;
+            color: #38bdf8;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        kbd {
+            background: #111827;
+            color: #f9fafb;
+            padding: 5px 8px;
+            border-radius: 4px;
+            border: 1px solid #374151;
+        }
+
+        abbr {
+            text-decoration: underline dotted;
+            color: #f472b6;
+            cursor: pointer;
+        }
+
+        blockquote {
+            border-left: 5px solid #38bdf8;
+            padding-left: 15px;
+            color: #e2e8f0;
+        }
+
+        small {
+            color: #94a3b8;
         }
     </style>
+
 </head>
 
 <body>
-    <h1>welcome to codingal</h1>
-    <p>Ready to learn the rotate method...</p>
 
-    <div>
-        Codingal
+    <p>CO<sub>2</sub></p>
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+    <p>a<SUP>2</SUP></p>
+
+    <hr>
+
+    <br><br>
+
+    <div class="container">
+        <h1>Highlight Text</h1>
+        <p>Use the mark element to <mark>highlight</mark> text.</p>
     </div>
-    <div id="mydiv">
-        Codingal
+
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+    <div class="container">
+        <h1>Code Snippets</h1>
+        <p>Inline snippets of code should be embedded in the code element:</p>
+        <p>The following HTML elements:
+            <code>span</code>,
+            <code>section</code>, and
+            <code>div</code>
+            defines a section in a document.
+        </p>
     </div>
+
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+    <u>
+        <h1>Abbreviations</h1>
+    </u>
+
+    <br><br>
+
+    <h5>
+        <p>It is used to mark any abbreviations or any acronym:</p>
+    </h5>
+    <h5>
+        <p><abbr title="codingal">- cdgnl</abbr> was founded in 2020</p>
+    </h5>
+
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+    <u>
+        <h1>Blockquotes</h1>
+    </u>
+    <p>It is used to present content from another source:</p>
+    <blockquote class="blockquote">
+        <p>Codingal is on a mission to inspire all the school kids</p>
+        <footer class="blockquote-footer">From Codingal</footer>
+    </blockquote>
+
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+    <u>
+        <h1>Multiple Code Lines</h1>
+    </u>
+
+    <p>For multiple lines of code, use the pre element:</p>
+
+    <h5>
+        <pre>
+codingal is on
+mission to
+inspire all the school
+kids      
+        </pre>
+    </h5>
+
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+    <h1>Keyboard Inputs</h1>
+    <p>To indicate input that is typically entered via the keyboard, use the kbd element:</p>
+    <p>Use <kbd>ctrl + p</kbd> to open the Print dialog box.</p>
+
+    <input type="color">
+
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+    <div class="container">
+        <u>
+            <h1>Display lists</h1>
+        </u>
+        <h1 class="display-1">This is Display 1</h1>
+        <h1 class="display-2">This is Display 2</h1>
+        <h1 class="display-3">This is Display 3</h1>
+        <h1 class="display-4">This is Display 4</h1>
+    </div>
+
+    <br><br>
+
+    <hr>
+
+    <div class="container">
+        <h1>Lighter , Secondary text with small tag and class text-muted:</h1>
+        <small class="text-muted">This is a small text.</small>
+    </div>
+
+    <hr>
+
+    <br><br>
+
+    <dl>
+        <dt>Coffee</dt>
+        <dd>White hot drink</dd>
+    </dl>
+
 </body>
 
 </html>
