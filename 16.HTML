@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <title>My Hobby Page</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
-        h1 {
-            text-decoration: overline;
-            text-transform: capitalize;
+        body {
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 40px;
         }
 
-        h2 {
-            text-decoration: line-through;
-            text-transform: uppercase;
-        }
-
-        h3 {
-            text-decoration: underline;
-            text-transform: lowercase;
-        }
-
-        h4 {
-            text-decoration: overline;
-            text-transform: none;
+        .main-title {
+            color: darkred;
+            text-align: center;
+            margin-top: 0;
         }
     </style>
 </head>
 
 <body>
-    <h1>Codingal</h1>
-    <h2>Ishrak</h2>
-    <h3>Someone</h3>
-    <h4>Anyone</h4>
+    <u>
+        <h1 class="main-title">My Hobby webpage.</h1>
+    </u>
+
+    <div class="container border border-dark bg-success text-white p-4 mt-3">
+        <h1>My Hobby</h1>
+        <p>My hobby is reading books and learning new things.</p>
+        <p>This section uses a fixed-width container.</p>
+    </div>
+
+    <div class="container-fluid border border-dark bg-primary text-white p-4 mt-3">
+        <h1>Why I Love My Hobby</h1>
+        <p>Hobbies help us relax and improve our skills.</p>
+        <p>I enjoy my hobby every day.</p>
+    </div>
+
+    <div class="container border border-dark bg-danger text-white p-3 my-3">
+        <h2>Reading Books</h2>
+        <p>Reading improves knowledge, imagination, and vocabulary.</p>
+    </div>
+
+    <div class="container border border-dark bg-info text-white p-5 my-3">
+        <h2>Learning New Skills</h2>
+        <p>I like learning coding, drawing, and creative work.</p>
+    </div>
+
+    <div class="container border border-dark bg-warning p-3 my-3">
+        <h2>Spending Free Time</h2>
+        <p>Instead of wasting time, hobbies make life meaningful and fun.</p>
+    </div>
+
 </body>
 
 </html>
