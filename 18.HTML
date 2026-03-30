@@ -1,33 +1,245 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>CSS Box model example</title>
-    <style type="text/CSS">
-        .example1 {
-            width: 220px;
-            background-color:yellow;
-            padding: 0px;
-            border: 0px;
-            margin: 0px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car World</title>
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .example2 {
-            width: 200px;
-            background-color:aquamarine;
-            padding: 50px;
-            border: 2px solid black;
-            margin: 50px 20px;
 
+        /* BODY BACKGROUND (ANIMATED GRADIENT) */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+        }
+
+        /* BACKGROUND ANIMATION */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav h2 {
+            color: #facc15;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        /* HERO (CAR IMAGE + DARK OVERLAY) */
+        .hero {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        /* BUTTON */
+        .btn {
+            background: linear-gradient(45deg, #facc15, #f59e0b);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #facc15;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        /* CARD (GLASS EFFECT) */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px;
+            width: 260px;
+            display: inline-block;
+            transition: 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* TEXT GLOW */
+        h1,
+        h2 {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 
 <body>
-    <h1>Box Model</h1>
-    <hr>
-    <p class="example1">This is paragraph 1</p>
-    <p class="example2">This is paragraph 2</p>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand text-warning" href="#">CarWorld</a>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.HTML">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="cars.html">Cars</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- SEARCH -->
+        <form class="form-inline">
+            <input class="search-box" type="search" placeholder="Search car...">
+            <button class="btn btn-warning ml-2">Search</button>
+        </form>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div>
+            <h1>Dream Cars</h1>
+            <p>Feel the speed. Feel the power.</p>
+        </div>
+    </div>
+
+    <!-- CAR CARD SECTION -->
+    <section class="container text-center">
+        <h2 class="text-warning mb-4">Featured Cars</h2>
+
+        <div class="row justify-content-center">
+
+            <!-- YOUR ORIGINAL CARD -->
+            <div class="card m-3" style="width: 18rem;">
+                <img class="card-img-top" src="lambo.webp" alt="lambo car">
+                <div class="card-body">
+                    <h5 class="card-title">Lambo</h5>
+                    <p class="card-text">Passionate about driving.</p>
+                    <a href="profile.html" class="btn btn-primary">See Profile</a>
+                </div>
+            </div>
+
+            <!-- EXTRA CARD -->
+            <div class="card m-3" style="width: 18rem;">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
+                <div class="card-body">
+                    <h5 class="card-title">Ferrari</h5>
+                    <p class="card-text">Luxury meets speed.</p>
+                    <a href="#" class="btn btn-danger">View</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SPINNER SECTION (YOUR CODE USED) -->
+    <section class="container text-center">
+        <h2>Loading Cars</h2>
+        <div class="spinner-border text-primary"></div>
+    </section>
+
+    <!-- PAGINATION (YOUR CODE USED) -->
+    <section class="container text-center">
+        <h2>Browse Pages</h2>
+
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="26.HTML">Previous</a>
+            </li>
+
+            <li class="page-item"><a class="page-link" href="28.HTML">1</a></li>
+            <li class="page-item"><a class="page-link" href="29.HTML">2</a></li>
+            <li class="page-item"><a class="page-link" href="32.HTML">3</a></li>
+            <li class="page-item"><a class="page-link" href="31.HTML">4</a></li>
+            <li class="page-item"><a class="page-link" href="30.HTML">5</a></li>
+
+            <li class="page-item">
+                <a class="page-link" href="25.HTML">Next</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 CarWorld | Designed by Ryan</p>
+    </footer>
+
 </body>
 
 </html>
