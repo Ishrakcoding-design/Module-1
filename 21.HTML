@@ -1,45 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <title>JavaScript Basics</title>
+
     <style>
-        div {
-            background-color: #ff0000;
-            padding: 10px;
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px;
         }
 
-        div.first {
-            opacity: 0.1;
+        h1 {
+            color: #333;
         }
 
-        div.second {
-            opacity: 0.3;
+        p {
+            font-size: 18px;
         }
 
-        div.third {
-            opacity: 0.6;
+        #result,
+        #demo {
+            font-weight: bold;
+            color: green;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>The opacity Property</h1>
+    <h1 id="myH"></h1>
+    <p id="myP"></p>
 
-    <p>This is how this property looks:</p>
+    <h1>JavaScript Variables</h1>
+    <p>Sum of two Numbers</p>
+    <p id="result"></p>
 
-    <div class="first">
-        <p>opacity 0.1</p>
-    </div>
-    <div class="second">
-        <p>opacity 0.3</p>
-    </div>
-    <div class="third">
-        <p>opacity 0.6</p>
-    </div>
-    <div>
-        <p>opacity 1 (default)</p>
-    </div>
+    <h1>JavaScript Statements</h1>
+
+    <p>
+        A <b>JavaScript program</b> is a list of
+        <b>statements</b> to be executed by a computer.
+    </p>
+
+    <p id="demo"></p>
+
+    <script>
+        // Heading
+        document.getElementById("myH").innerHTML = "JavaScript Comments";
+
+        // Paragraph
+        document.getElementById("myP").innerHTML = "My first paragraph.";
+
+        // Sum calculation
+        let num1 = 5;
+        let num2 = 6;
+        let sum = num1 + num2;
+
+        document.getElementById("result").innerHTML =
+            "The total sum is: " + sum;
+
+        // Statements example
+        let x, y, z;
+        x = 5;
+        y = 6;
+        z = x + y;
+
+        document.getElementById("demo").innerHTML =
+            "The value of z is " + z + ".";
+    </script>
 
 </body>
 
