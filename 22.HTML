@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Function Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #resultContainer p {
+            margin: 5px 0;
+        }
+
+        center {
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>JavaScript Education</h1>
+    </center>
+
+    <div class="section">
+        <h3>1️⃣ Click to know what is 33.5 * 2</h3>
+        <button onclick="myfunction(33.5)">Click Me</button>
+    </div>
+
+    <div class="section">
+        <h3>2️⃣ Function accessing local & global variables</h3>
+        <p>A function can access variables defined inside the function:</p>
+        <button type="button" onclick="myFunction()">Click Me!</button>
+        <div id="resultContainer">
+            <p id="demo"></p>
+            <p id="demo1"></p>
+            <p id="demo2"></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>3️⃣ 34.5 * 2 = ?</h3>
+        <p id="calcResult"></p>
+    </div>
+
+    <script>
+        // Part 1
+        function myfunction(x, y) {
+            if (y === undefined) {
+                y = 2;
+            }
+            alert(x * y); // Using alert instead of document.write to avoid overwriting page
+        }
+
+        // Part 2
+        var b = 10;
+
+        function myFunction() {
+            var a = 4;
+            document.getElementById("demo").innerHTML = "b * a = " + (b * a);
+            document.getElementById("demo1").innerHTML = "Button clicked!";
+            document.getElementById("demo2").innerHTML = "Value of a: " + a;
+        }
+
+        // Part 3
+        var result = function (a, b) {
+            return a * b;
+        };
+
+        document.getElementById("calcResult").innerHTML = result(34.5, 2);
+    </script>
+</body>
+
+</html>
