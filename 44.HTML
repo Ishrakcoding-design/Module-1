@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .body {
+            background-color: rgba(181, 237, 78, 0.71);
+        }
+    </style>
+
+<body class="body">
+
+    <big>
+        <u style="color: rgb(0, 95, 21);">
+            <h1 style="text-align: center;color: rgb(0, 95, 21);">JavaScript For Loop</h1>
+        </u>
+    </big>
+    <br>
+
+    <center>
+        <big>
+            <h3>
+                <u style="color: rgb(0, 95, 21);"></u>
+                <p id="demo" , style="color:  rgb(0, 95, 21);"></p>
+                </u>
+            </h3>
+        </big>
+    </center>
+
+    <script>
+        // Create an array of fruits
+        let fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+
+        // Create empty text variable
+        let text = "";
+
+        // Use for loop
+        for (let i = 0; i < fruits.length; i++) {
+            text += fruits[i] + "<br>";
+        }
+
+        // Display the result
+        document.getElementById("demo").innerHTML = text;
+    </script>
+
+</body>
+
+</html>
