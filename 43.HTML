@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .body {
+            background-color: rgba(163, 240, 104, 0.824);
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <u style="color: rgb(0, 95, 21);">
+        <h1 style="text-align: center;color: rgb(0, 95, 21);">JavaScript String Methods</h1>
+    </u>
+    <br>
+    <u style="color: rgb(6, 75, 6);">
+        <h1 style="text-align: center;">
+            <p style="color: rgb(6, 75, 6);">Basic Methods</p>
+    </u>
+    </h1>
+
+    <center>
+        <big>
+            <script>
+                // Step 1
+                let str = "AmAzInG";
+
+                // Step 2
+                document.write(str.toUpperCase());
+                document.write("<br>");
+
+                document.write(str.toLowerCase());
+                document.write("<br>");
+
+                document.write(str.startsWith('i'));
+                document.write("<br>");
+
+                // Step 3
+                let str1 = "I learnt about Methods";
+                let pattern = new RegExp("about");
+                let res = pattern.test(str1);
+
+                document.write(res);
+            </script>
+        </big>
+
+    </center>
+
+</body>
+
+</html>
