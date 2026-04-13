@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        .body {
+            background-color: rgba(181, 237, 78, 0.71);
+        }
+    </style>
+
+</head>
+
+<body class="body">
+
+    <big>
+        <u style="color: rgb(0, 95, 21);">
+            <h1
+                style="text-align: center;color: rgb(0, 95, 21); font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                Days in JavaScript (JS)</h1>
+        </u>
+    </big>
+    <br>
+
+    <center>
+        <big>
+            <h2>
+                <u style="color: rgb(5, 64, 18);">
+                    <p id="demo" , style="color: rgb(5, 64, 18); font-family: 'Courier New', Courier, monospace;"></p>
+                </u>
+            </h2>
+        </big>
+    </center>
+
+    <script>
+        let day;
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
+
+        document.getElementById("demo").innerHTML = "Today is a special day which is " + day;
+    </script>
+
+</body>
+
+</html>
