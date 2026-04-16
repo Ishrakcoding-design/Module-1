@@ -1,32 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>✨ Premium JavaScript Learning Hub</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+        }
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+        /* Header */
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 38px;
+            margin-top: 30px;
+            color: #00f5ff;
+            text-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+        }
 
-    </script>
+        /* Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px;
+        }
 
+        /* Card Design */
+        .card {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(18px);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 245, 255, 0.25);
+        }
+
+        /* Headings */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ffe600;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 230, 0, 0.4);
+        }
+
+        /* Paragraph */
+        p {
+            font-size: 15px;
+            opacity: 0.9;
+            color: #e6f7ff;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #aeefff;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Hello ! Students this is a task of bootstrap</h1>
-        <p>Resize the browser to see the effects</p>
-    </div>
-    <div class="row">
-        <div class="col-md-9 col-lg-6" style="background-color: blue;">md and lg</div>
-        <div class="col-xs-8 col-md-7" style="background-color: rgb(255, 0, 0);">xs and md</div>
-    </div>
-    <div class="row">
-        <div class="col-xs-1 col-md-2" style="background-color: blue;">xs and md</div>
-        <div class="col-md-4 col-xs-3" style="background-color: rgb(255, 0, 0);">md and xs</div>
-    </div>
+
+    <u>
+        <center>
+            <header>
+                <h1>✨ Premium JavaScript Learning Hub</h1>
+            </header>
+        </center>
+    </u>
+
+    <br>
+
+    <center>
+        <div class="container">
+
+            <div class="card">
+                <u style=" color: #eaff00;">
+                    <h2>JavaScript Objects</h2>
+                </u>
+                <p>Access object properties using . or [" "]</p>
+                <p id="demo"></p>
+            </div>
+
+            <div class="card">
+                <u style=" color: #eaff00;">
+                    <h2>Math Object Methods</h2>
+                </u>
+                <p id="math"></p>
+            </div>
+
+            <div class="card">
+                <u style=" color: #eaff00;">
+                    <h2>Find Maximum Number</h2>
+                </u>
+                <p>Using JavaScript arguments object</p>
+                <p id="result"></p>
+            </div>
+
+        </div>
+    </center>
+
+
+    <br>
+
+
+    <b>
+        <footer class="footer">
+            🚀 Made with Premium UI Design
+        </footer>
+    </b>
+
+    <script>
+
+
+        // Creating an object
+        let person = {
+            firstName: "Ishrak",
+            age: 14
+        };
+
+        // Displaying object data
+        document.getElementById("demo").innerHTML =
+            person.firstName + " is " + person.age + " years old";
+
+        let mathText = "";
+        mathText += "Abs: " + Math.abs(67) + "<br>";
+        mathText += "Acos: " + Math.acos(-1) + "<br>";
+        mathText += "Asin: " + Math.asin(1) + "<br>";
+        mathText += "Atan: " + Math.atan(0.5) + "<br>";
+
+        document.getElementById("math").innerHTML = mathText;
+
+        function findMax() {
+            let max = -Infinity;
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+
+        document.getElementById("result").innerHTML =
+            findMax(48, 65, 67);
+    </script>
 
 </body>
 
