@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        🕶Using JavaScript Argument Object
+    </title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            color: white;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 320px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        #result {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00ffcc;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>🔥 Find Maximum Number</h2>
+        <p>Using JavaScript Argument Object</p>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function findMax() {
+            let i;
+            let max = 0;
+
+            for (i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+
+            return max;
+        }
+
+        document.getElementById("result").innerHTML = findMax(48, 65, 67);
+    </script>
+
+</body>
+
+</html>
