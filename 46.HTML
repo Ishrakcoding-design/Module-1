@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        ✨ JavaScript Objects and its Properties
+    </title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        p {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+        }
+
+        #demo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <u style="color: #ffffff;">
+        <h1>✨ JavaScript Objects and its Properties</h1>
+    </u>
+
+    <div class="box">
+
+        <p><b>There are two different ways to access an object property</b></p>
+
+        <p><b>You can use .property or ["property"]</b></p>
+
+        <br>
+
+        <p id="demo"></p>
+
+    </div>
+
+    <script>
+        // Creating an name
+        let person = {
+            firstName: "Raiyan",
+            age: 13
+        };
+
+        // Displaying object data
+        document.getElementById("demo").innerHTML =
+            person.firstName + " is " + person.age + " years old";
+    </script>
+
+</body>
+
+</html>
