@@ -1,50 +1,106 @@
-<!--Bootstrap typography.-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Bootstrap Typography example</title>
+    <title>JavaScript Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+        }
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        h2 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
 
-    </script>
+        .result {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
 
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <u>
-            <h1>Display lists</h1>
-        </u>
-        <h1 class="display-1">This is Display 1</h1>
-        <h1 class="display-2">This is Display 2</h1>
-        <h1 class="display-3">This is Display 3</h1>
-        <h1 class="display-4">This is Display 4</h1>
-    </div>
-
-    <br><br>
-
-    <hr>
 
     <div class="container">
-        <h1>Lighter , Secondary text with small tag and class text-muted:</h1>
-        <small class="text-muted">This is a small text.</small>
+        <h2>JavaScript Arrays</h2>
+        <p id="array-demo" class="result"></p>
+
+        <h2>JavaScript Array Methods</h2>
+        <p>join() and pop()</p>
+        <p style="font-size: 14px;">join() converts to string. pop() removes the last element.</p>
+
+        <p id="myjoin"></p>
+        <p id="myfirstpop"></p>
+        <p id="mysecondpop" class="result"></p>
+
+        <h2>JavaScript Functions</h2>
+        <p>Calculation result:</p>
+        <p id="func-demo" class="result"></p>
     </div>
 
-    <hr>
+    <script>
+        // --- 1. Arrays Logic ---
+        var cars = ["Coding", "Magic", "Learn"];
+        document.getElementById("array-demo").innerHTML = cars[0];
 
-    <br><br>
+        // --- 2. Array Methods Logic ---
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("myjoin").innerHTML = "Joined: " + fruits.join(" * ");
+        document.getElementById("myfirstpop").innerHTML = "Original: " + fruits;
+        fruits.pop();
+        document.getElementById("mysecondpop").innerHTML = "After pop: " + fruits;
 
-    <dl>
-        <dt> Coffee</dt>
-        <dd> White hot drink</dd>
-    </dl>
+        // --- 3. Functions Logic ---
+        function add(a, b) {
+            return a + b;
+        }
+
+        function average(a, b) {
+            let sum = add(a, b);
+            return sum / 2;
+        }
+
+        let result = average(10, 20);
+        document.getElementById("func-demo").innerHTML = result;
+    </script>
+
 </body>
 
 </html>
