@@ -2,19 +2,146 @@
 <html>
 
 <head>
-    <title>Full width container</title>
+    <title>JavaScript Combined Example</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- BEAUTIFUL PREMIUM FONT -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Manrope:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            padding: 30px;
+            text-align: center;
+
+            /* PREMIUM GRADIENT BACKGROUND */
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #f5f5f5;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e0c3fc;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.08);
+            margin: 25px auto;
+            padding: 25px;
+            width: 80%;
+            border-radius: 20px;
+
+            /* GLASS EFFECT */
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+            transition: 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        button {
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+
+            /* GRADIENT BUTTON */
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            color: #222;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+            transform: scale(1.05);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container bg-success text-white">
-        <h1>My First Bootstrap Page</h1>
-        <p>This text is inside in a conatainer.</p>
-        <p>The conatainer class provides a responsive fixed width container.</p>
+
+    <h1>JavaScript Full Demo</h1>
+
+    <div class="box">
+        <h2>Data Types Example</h2>
+        <p id="datatype"></p>
     </div>
+
+    <div class="box">
+        <h2>Time-Based Greeting</h2>
+        <p>Click the button:</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="hour"></p>
+        <p id="greet"></p>
+    </div>
+
+    <div class="box">
+        <h2>While Loop Example</h2>
+        <p id="number"></p>
+    </div>
+
+    <script>
+        var a = 8;
+        var b = 10;
+        var c = 10;
+        var d = null;
+        var e;
+
+        var dataOutput = "";
+        dataOutput += "a and b are equal : " + (a == b) + "<br>";
+        dataOutput += "b and c are equal : " + (b == c) + "<br>";
+        dataOutput += "The value of d is : " + d + "<br>";
+        dataOutput += "The value of e is : " + e;
+
+        document.getElementById("datatype").innerHTML = dataOutput;
+
+        function myFunction() {
+            var greeting;
+            var time = new Date().getHours();
+
+            if (time < 10) {
+                greeting = "Good morning";
+            } else if (time < 20) {
+                greeting = "Good day";
+            } else {
+                greeting = "Good evening";
+            }
+
+            document.getElementById("hour").innerHTML = "Current Hour is : " + time;
+            document.getElementById("greet").innerHTML = greeting;
+        }
+
+        var text = "";
+        var i = 0;
+
+        while (i < 10) {
+            text += "The number is " + i + "<br>";
+            i++;
+        }
+
+        document.getElementById("number").innerHTML = text;
+    </script>
+
 </body>
 
 </html>
