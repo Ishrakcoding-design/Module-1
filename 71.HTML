@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🍔 Food Delivery Estimator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fff7ed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #92400e;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            width: 100%;
+            max-width: 460px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            margin-bottom: 18px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 13px 16px;
+            border: 2px solid #fed7aa;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            color: #374151;
+            margin-bottom: 14px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #f97316;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+            transition: transform 0.1s;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #status {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #92400e;
+            text-align: center;
+            min-height: 30px;
+            margin-top: 16px;
+        }
+
+        #result {
+            display: none;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            border-radius: 18px;
+            padding: 30px;
+            width: 100%;
+            max-width: 460px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 6px 28px rgba(249, 115, 22, 0.4);
+            animation: pop 0.4s ease;
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #result .emoji {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        #result .msg {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        #result .sub {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🍔 Food Delivery Estimator</h1>
+
+    <div class="card">
+        <input type="text" id="food-input" placeholder="Type your food (e.g. Pizza, Burger)..." />
+        <button id="order-btn" onclick="placeOrder()">🛵 Place Order!</button>
+        <div id="status"></div>
+    </div>
+
+    <div id="result">
+        <div class="emoji" id="result-emoji">🎉</div>
+        <div class="msg" id="result-msg"></div>
+        <div class="sub">Hot and fresh, delivered to your door.</div>
+    </div>
+
+    <script>
+
+        // delay — returns a Promise that resolves after ms milliseconds
+        function delay(ms) {
+            return new Promise(function (resolve) {
+                setTimeout(resolve, ms);
+            });
+        }
+
+        // async placeOrder — uses await to pause at each delivery step
+        async function placeOrder() {
+
+            let food = document.getElementById("food-input").value.trim();
+
+            if (!food) {
+                alert("Please type a food item first!");
+                return;
+            }
+
+            // 1) Get button
+            let btn = document.getElementById("order-btn");
+
+            // Disable button
+            btn.disabled = true;
+
+            // 2) Hide result box
+            document.getElementById("result").style.display = "none";
+
+            document.getElementById("status").textContent =
+                "📋 Order received!";
+
+            // 3) Wait 1 second
+            await delay(1000);
+
+            document.getElementById("status").textContent =
+                "👨‍🍳 Kitchen is preparing your " + food + "...";
+
+            // 4) Wait 3 seconds
+            await delay(3000);
+
+            document.getElementById("status").textContent =
+                "🛵 Out for delivery!";
+
+            // 5) Wait 1.5 seconds
+            await delay(1500);
+
+            // 6) Show final result
+
+            // Clear status
+            document.getElementById("status").textContent = "";
+
+            // Final message
+            document.getElementById("result-msg").textContent =
+                food + " delivered successfully!";
+
+            // Show result box
+            document.getElementById("result").style.display = "block";
+
+            // Enable button again
+            btn.disabled = false;
+        }
+
+    </script>
+
+    </script>
+</body>
+
+</html>

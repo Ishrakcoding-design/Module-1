@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🛒 Shopping Cart Summary</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -147,13 +148,29 @@
 
     <div class="card">
         <h2>🧺 Your Cart</h2>
-        <div class="item-row"><span>🎧 Headphones</span><span class="item-price">$50</span></div>
-        <div class="item-row"><span>⌨️ Keyboard</span> <span class="item-price">$30</span></div>
-        <div class="item-row"><span>🖱️ Mouse</span> <span class="item-price">$20</span></div>
+
+        <div class="item-row">
+            <span>🎧 Headphones</span>
+            <span class="item-price">$50</span>
+        </div>
+
+        <div class="item-row">
+            <span>⌨️ Keyboard</span>
+            <span class="item-price">$30</span>
+        </div>
+
+        <div class="item-row">
+            <span>🖱️ Mouse</span>
+            <span class="item-price">$20</span>
+        </div>
 
         <div class="btn-group">
             <button class="btn-save" onclick="saveCart()">💾 Save Cart</button>
-            <button class="btn-load" onclick="loadCart()" id="load-btn" disabled>📦 Load Cart</button>
+
+            <button class="btn-load" onclick="loadCart()" id="load-btn" disabled>
+                📦 Load Cart
+            </button>
+
             <button class="btn-reset" onclick="resetAll()">↺</button>
         </div>
     </div>
@@ -174,54 +191,76 @@
             ]
         };
 
+        // Save Cart Function
         function saveCart() {
+
+            // Convert object to formatted JSON
             let jsonText = JSON.stringify(cart, null, 2);
 
+            // Change title
             document.getElementById("output-title").textContent = "Cart Saved";
+
+            // Show JSON data
             document.getElementById("output-content").innerHTML =
                 `<div class="json-block">${jsonText}</div>
-<p class="success"> ✅ Saved! Now click Load Cart.</p>`;
+                 <p class="success">✅ Saved! Now click Load Cart.</p>`;
+
+            // Show output box
             document.getElementById("output-box").style.display = "block";
+
+            // Enable load button
             document.getElementById("load-btn").disabled = false;
         }
 
-        // Step 3 — Load: convert JSON text back to a JS object using JSON.parse()
+        // Load Cart Function
         function loadCart() {
 
+            // Convert object to JSON
             let jsonText = JSON.stringify(cart);
+
+            // Convert JSON back to object
             let loadedCart = JSON.parse(jsonText);
 
+            // Variables
             let total = 0;
             let rows = "";
 
-            loadedCart.items.forEach(function (item) {
+            // Loop through items
+            loadedCart.items.forEach(item => {
+
                 total += item.price;
-                rows += `<div class="item-row">
-    <span>${item.emoji} ${item.name}</span>
-    <span class="item-price">$${item.price}</span>
-</div>`;
+
+                rows += `
+                    <div class="item-row">
+                        <span>${item.emoji} ${item.name}</span>
+                        <span class="item-price">$${item.price}</span>
+                    </div>
+                `;
             });
+
+            // Show loaded cart
+            document.getElementById("output-title").textContent = "Cart Loaded";
+
+            document.getElementById("output-content").innerHTML =
+                `${rows}
+                 <div class="total-row">
+                    <span>🧾 Total</span>
+                    <span>$${total}</span>
+                 </div>
+
+                 <p class="success">✅ Loaded successfully!</p>`;
+
+            document.getElementById("output-box").style.display = "block";
         }
 
-
-        document.getElementById("output-title").textContent = "Cart Loaded";
-        document.getElementById("output-content").innerHTML =
-            `${rows}
-         <div class="total-row"><span>🧾 Total</span><span>$${total}</span></div>
-         <p class="success">✅ Loaded successfully!</p>`;
-        document.getElementById("output-box").style.display = "block";
-
-
-        // Reset everything back to the start
+        // Reset everything
         function resetAll() {
             document.getElementById("output-box").style.display = "none";
             document.getElementById("load-btn").disabled = true;
         }
 
-
-
-
     </script>
+
 </body>
 
 </html>
