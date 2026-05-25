@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Modern School Events Dashboard</title>
+
+    <style>
+        /* =========================
+   MODERN LIGHT UI CSS
+========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", "Poppins", sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+
+            /* Soft modern background */
+            background:
+                radial-gradient(circle at top left, #dbeafe 0%, transparent 30%),
+                radial-gradient(circle at bottom right, #bfdbfe 0%, transparent 25%),
+                linear-gradient(135deg, #f8fbff, #eef4ff);
+
+            color: #1e293b;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1450px;
+            margin: auto;
+        }
+
+        /* =========================
+   HEADER
+========================= */
+
+        .top-section {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .main-title {
+            font-size: 60px;
+            font-weight: 800;
+            letter-spacing: -2px;
+
+            background: linear-gradient(90deg,
+                    #2563eb,
+                    #38bdf8);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 18px;
+        }
+
+        .subtitle {
+            max-width: 850px;
+            margin: auto;
+
+            color: #64748b;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+   BUTTON
+========================= */
+
+        .load-btn {
+            margin-top: 32px;
+
+            background: linear-gradient(135deg,
+                    #60a5fa,
+                    #2563eb);
+
+            color: white;
+            border: none;
+
+            padding: 17px 38px;
+
+            border-radius: 60px;
+
+            font-size: 17px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.35s ease;
+
+            box-shadow:
+                0 10px 25px rgba(59, 130, 246, 0.25);
+        }
+
+        .load-btn:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(59, 130, 246, 0.35);
+        }
+
+        /* =========================
+   STATUS BOX
+========================= */
+
+        .status-box {
+            background: rgba(255, 255, 255, 0.8);
+
+            backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255, 255, 255, 0.6);
+
+            border-radius: 24px;
+
+            padding: 24px;
+
+            margin-bottom: 35px;
+
+            box-shadow:
+                0 8px 30px rgba(148, 163, 184, 0.12);
+
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        #status {
+            color: #2563eb;
+        }
+
+        /* =========================
+   EVENT GRID
+========================= */
+
+        .events-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(320px, 1fr));
+
+            gap: 28px;
+        }
+
+        /* =========================
+   EVENT CARD
+========================= */
+
+        .event-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            backdrop-filter: blur(16px);
+
+            border-radius: 30px;
+
+            padding: 28px;
+
+            border: 1px solid rgba(255, 255, 255, 0.5);
+
+            transition: 0.4s ease;
+
+            box-shadow:
+                0 10px 30px rgba(148, 163, 184, 0.12);
+        }
+
+        /* Soft glowing circle */
+        .event-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            background: rgba(96, 165, 250, 0.15);
+
+            border-radius: 50%;
+
+            top: -80px;
+            right: -80px;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 45px rgba(59, 130, 246, 0.18);
+        }
+
+        /* Event Title */
+        .event-title {
+            position: relative;
+            z-index: 2;
+
+            font-size: 24px;
+            font-weight: 700;
+
+            color: #0f172a;
+
+            margin-bottom: 18px;
+        }
+
+        /* Event Info */
+        .event-info {
+            position: relative;
+            z-index: 2;
+
+            color: #475569;
+
+            line-height: 2;
+
+            font-size: 15px;
+        }
+
+        /* =========================
+   BADGES
+========================= */
+
+        .badge {
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 7px 16px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .open {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .closed {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        /* =========================
+   JSON OUTPUT
+========================= */
+
+        .json-box {
+            margin-top: 45px;
+
+            background: rgba(255, 255, 255, 0.82);
+
+            backdrop-filter: blur(16px);
+
+            border-radius: 28px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 10px 35px rgba(148, 163, 184, 0.12);
+        }
+
+        .json-title {
+            font-size: 28px;
+            font-weight: 700;
+
+            color: #2563eb;
+
+            margin-bottom: 20px;
+        }
+
+        #jsonOutput {
+            white-space: pre-wrap;
+
+            line-height: 1.8;
+
+            color: #334155;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+   SCROLLBAR
+========================= */
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #eff6ff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #93c5fd;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+
+        /* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+        @media (max-width: 768px) {
+
+            .main-title {
+                font-size: 42px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .event-card {
+                padding: 22px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="top-section">
+
+            <h1 class="main-title">
+                ✨ Modern School Events Dashboard
+            </h1>
+
+            <p class="subtitle">
+                Beautiful modern school event management system using JSON,
+                asynchronous JavaScript, promises, async/await, loops,
+                JSON.stringify(), JSON.parse(), and advanced glassmorphism UI design.
+            </p>
+
+            <button class="load-btn" onclick="showSchoolEvents()">
+                Load 50+ Events
+            </button>
+
+        </div>
+
+        <div class="status-box">
+            Status:
+            <span id="status">
+                Waiting to load school event data...
+            </span>
+        </div>
+
+        <div id="eventsContainer" class="events-grid"></div>
+
+        <div class="json-box">
+
+            <h2 class="json-title">
+                📄 JSON Output
+            </h2>
+
+            <div id="jsonOutput"></div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // Callback Function
+        function showLoadingMessage(message) {
+            document.getElementById("status").innerHTML = message;
+        }
+
+        // Promise Function
+        function fetchSchoolEventData(callback) {
+
+            callback("Loading 50+ school events... Please wait ⏳");
+
+            return new Promise(function (resolve) {
+
+                setTimeout(function () {
+
+                    let schoolEvents = [];
+
+                    // Generate 50 Events
+                    for (let i = 1; i <= 50; i++) {
+
+                        let event = {
+
+                            eventName: "School Event " + i,
+
+                            date: (i + 1) + " August 2026",
+
+                            time: (8 + (i % 5)) + ":00 AM",
+
+                            venue: "Hall Room " + ((i % 10) + 1),
+
+                            coordinator: "Teacher " + i,
+
+                            participants: 50 + (i * 3),
+
+                            isRegistrationOpen: i % 2 === 0
+
+                        };
+
+                        schoolEvents.push(event);
+
+                    }
+
+                    resolve(schoolEvents);
+
+                }, 2000);
+
+            });
+
+        }
+
+        // Async/Await
+        async function showSchoolEvents() {
+
+            let eventData =
+                await fetchSchoolEventData(showLoadingMessage);
+
+            document.getElementById("status").innerHTML =
+                "✅ Successfully loaded 50+ school events!";
+
+            // Convert JSON to Text
+            let jsonText =
+                JSON.stringify(eventData, null, 2);
+
+            // Parse JSON
+            let parsedEvents =
+                JSON.parse(jsonText);
+
+            let finalHTML = "";
+
+            // Loop Through Events
+            parsedEvents.forEach(function (event, index) {
+
+                finalHTML += `
+
+          <div class="event-card">
+
+            <h2 class="event-title">
+              🎓 ${event.eventName}
+            </h2>
+
+            <div class="event-info">
+
+              📅 <strong>Date:</strong>
+              ${event.date}
+              <br>
+
+              ⏰ <strong>Time:</strong>
+              ${event.time}
+              <br>
+
+              📍 <strong>Venue:</strong>
+              ${event.venue}
+              <br>
+
+              👨‍🏫 <strong>Coordinator:</strong>
+              ${event.coordinator}
+              <br>
+
+              👥 <strong>Participants:</strong>
+              ${event.participants}
+              <br>
+
+              🆔 <strong>Event ID:</strong>
+              EVT-${1000 + index}
+              <br>
+
+              <span class="badge ${event.isRegistrationOpen ? 'open' : 'closed'}">
+
+                ${event.isRegistrationOpen
+                        ? 'Registration Open'
+                        : 'Registration Closed'}
+
+              </span>
+
+            </div>
+
+          </div>
+
+        `;
+
+            });
+
+            document.getElementById("eventsContainer").innerHTML =
+                finalHTML;
+
+            document.getElementById("jsonOutput").innerHTML =
+                jsonText;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
