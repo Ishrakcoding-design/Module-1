@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Task Organizer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <style>
+        /* ===========================================
+   GOOGLE FONTS
+=========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background: linear-gradient(-45deg,
+                    #0f172a,
+                    #1e3a8a,
+                    #312e81,
+                    #0891b2);
+
+            background-size: 400% 400%;
+
+            animation: bgAnimation 15s ease infinite;
+
+            color: #ffffff;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+
+            position: relative;
+
+        }
+
+        /* ===========================================
+   BACKGROUND ANIMATION
+=========================================== */
+
+        @keyframes bgAnimation {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+        /* ===========================================
+   FLOATING BLOBS
+=========================================== */
+
+        .blob {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(60px);
+
+            opacity: .35;
+
+            z-index: -1;
+
+            animation: float 12s infinite ease-in-out;
+
+        }
+
+        .blob1 {
+
+            width: 320px;
+
+            height: 320px;
+
+            background: #7c3aed;
+
+            top: -80px;
+
+            left: -100px;
+
+        }
+
+        .blob2 {
+
+            width: 280px;
+
+            height: 280px;
+
+            background: #06b6d4;
+
+            right: -80px;
+
+            top: 180px;
+
+            animation-delay: 3s;
+
+        }
+
+        .blob3 {
+
+            width: 350px;
+
+            height: 350px;
+
+            background: #38bdf8;
+
+            bottom: -120px;
+
+            left: 40%;
+
+            animation-delay: 6s;
+
+        }
+
+        @keyframes float {
+
+            0% {
+
+                transform: translateY(0px) scale(1);
+
+            }
+
+            50% {
+
+                transform: translateY(-40px) scale(1.1);
+
+            }
+
+            100% {
+
+                transform: translateY(0px) scale(1);
+
+            }
+
+        }
+
+        /* ===========================================
+   NAVBAR
+=========================================== */
+
+        .navbar {
+
+            background: rgba(255, 255, 255, .08);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, .15);
+
+            padding: 18px;
+
+        }
+
+        .navbar-brand {
+
+            font-family: 'Outfit', sans-serif;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            color: #ffffff !important;
+
+            letter-spacing: 1px;
+
+            transition: .4s;
+
+        }
+
+        .navbar-brand:hover {
+
+            color: #38bdf8 !important;
+
+            transform: scale(1.05);
+
+        }
+
+        .navbar i {
+
+            margin-right: 10px;
+
+            color: #38bdf8;
+
+        }
+
+        /* ===========================================
+   HERO SECTION
+=========================================== */
+
+        .hero {
+
+            padding: 80px 20px 60px;
+
+            text-align: center;
+
+        }
+
+        .hero h1 {
+
+            font-family: 'Outfit', sans-serif;
+
+            font-size: 60px;
+
+            font-weight: 800;
+
+            background: linear-gradient(90deg,
+                    #ffffff,
+                    #38bdf8,
+                    #7c3aed);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 20px;
+
+            animation: fadeDown 1s;
+
+        }
+
+        .hero p {
+
+            font-size: 20px;
+
+            color: #d1d5db;
+
+            max-width: 750px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+            animation: fadeUp 1.3s;
+
+        }
+
+        /* ===========================================
+   FADE ANIMATIONS
+=========================================== */
+
+        @keyframes fadeDown {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(-50px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(40px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        /* ===========================================
+   CONTAINER
+=========================================== */
+
+        .container {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+        /* ===========================================
+   GLASS CARDS
+=========================================== */
+
+        .glass-card {
+
+            background: rgba(255, 255, 255, .08);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255, 255, 255, .18);
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            transition: .4s;
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .30);
+
+        }
+
+        .glass-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: 0 25px 45px rgba(56, 189, 248, .35);
+
+            border-color: #38bdf8;
+
+        }
+
+        .card-body {
+
+            padding: 35px;
+
+        }
+
+        .card-title,
+        .glass-card h3 {
+
+            font-family: 'Outfit', sans-serif;
+
+            font-size: 30px;
+
+            font-weight: 700;
+
+            color: #ffffff;
+
+            margin-bottom: 18px;
+
+        }
+
+        .glass-card h3 i {
+
+            color: #38bdf8;
+
+            margin-right: 12px;
+
+        }
+
+        .card-text {
+
+            color: #d1d5db;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+
+        }
+
+        /* ===========================================
+   GLOW BUTTONS
+=========================================== */
+
+        .btn-glow {
+
+            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+
+            color: #ffffff;
+
+            border: none;
+
+            border-radius: 50px;
+
+            padding: 12px 28px;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            transition: .35s;
+
+            box-shadow: 0 0 18px rgba(124, 58, 237, .45);
+
+            margin-bottom: 10px;
+
+        }
+
+        .btn-glow:hover {
+
+            color: #ffffff;
+
+            transform: translateY(-3px) scale(1.05);
+
+            box-shadow:
+                0 0 20px rgba(6, 182, 212, .6),
+                0 0 45px rgba(124, 58, 237, .6);
+
+        }
+
+        .btn-glow:focus {
+
+            outline: none;
+
+            box-shadow:
+                0 0 20px rgba(6, 182, 212, .8);
+
+        }
+
+        .btn-glow i {
+
+            margin-right: 8px;
+
+        }
+
+        /* ===========================================
+   RESULT BOX
+=========================================== */
+
+        .result-box {
+
+            margin-top: 25px;
+
+            background: rgba(255, 255, 255, .06);
+
+            border: 1px solid rgba(255, 255, 255, .12);
+
+            border-left: 5px solid #38bdf8;
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            min-height: 70px;
+
+            color: #ffffff;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            transition: .4s;
+
+            word-wrap: break-word;
+
+        }
+
+        .result-box:hover {
+
+            background: rgba(255, 255, 255, .10);
+
+            border-left-color: #7c3aed;
+
+            transform: scale(1.02);
+
+        }
+
+        /* ===========================================
+   BADGES
+=========================================== */
+
+        .badge-area {
+
+            margin-top: 25px;
+
+        }
+
+        .badge-custom {
+
+            background: linear-gradient(135deg, #06b6d4, #7c3aed);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            padding: 12px 20px;
+
+            margin: 8px;
+
+            border-radius: 40px;
+
+            transition: .35s;
+
+            box-shadow: 0 0 15px rgba(6, 182, 212, .30);
+
+        }
+
+        .badge-custom:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 0 25px rgba(124, 58, 237, .55);
+
+        }
+
+        /* ===========================================
+   FOOTER
+=========================================== */
+
+        footer {
+
+            margin-top: 60px;
+
+            padding: 35px 20px;
+
+            background: rgba(255, 255, 255, .08);
+
+            backdrop-filter: blur(15px);
+
+            border-top: 1px solid rgba(255, 255, 255, .15);
+
+        }
+
+        footer h5 {
+
+            font-family: 'Outfit', sans-serif;
+
+            color: #ffffff;
+
+            font-size: 24px;
+
+            margin-bottom: 10px;
+
+        }
+
+        footer h5 i {
+
+            color: #38bdf8;
+
+            margin-right: 8px;
+
+        }
+
+        footer p {
+
+            color: #cbd5e1;
+
+            margin-bottom: 0;
+
+            font-size: 16px;
+
+        }
+
+        /* ===========================================
+   HOVER EFFECTS
+=========================================== */
+
+        .glass-card,
+        .btn-glow,
+        .badge-custom,
+        .result-box {
+
+            transition: all .35s ease;
+
+        }
+
+        /* ===========================================
+   PART 3
+   ANIMATIONS • RESPONSIVE • SCROLLBAR
+=========================================== */
+
+        /* ===========================================
+   SCROLLBAR
+=========================================== */
+
+        ::-webkit-scrollbar {
+
+            width: 12px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+
+            background: #0f172a;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: linear-gradient(#7c3aed,
+                    #06b6d4);
+
+            border-radius: 20px;
+
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+
+            background: linear-gradient(#38bdf8,
+                    #7c3aed);
+
+        }
+
+        /* ===========================================
+   TEXT SELECTION
+=========================================== */
+
+        ::selection {
+
+            background: #38bdf8;
+
+            color: #ffffff;
+
+        }
+
+        ::-moz-selection {
+
+            background: #38bdf8;
+
+            color: #ffffff;
+
+        }
+
+        /* ===========================================
+   FADE-IN ANIMATION
+=========================================== */
+
+        .fade-in {
+
+            animation: fadeIn 1s ease forwards;
+
+        }
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        /* ===========================================
+   FLOATING CARD EFFECT
+=========================================== */
+
+        .glass-card {
+
+            animation: cardFloat 5s ease-in-out infinite;
+
+        }
+
+        @keyframes cardFloat {
+
+            0% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-4px);
+
+            }
+
+            100% {
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        /* ===========================================
+   ICON ANIMATION
+=========================================== */
+
+        .glass-card h3 i {
+
+            transition: .4s;
+
+        }
+
+        .glass-card:hover h3 i {
+
+            transform: rotate(12deg) scale(1.2);
+
+            color: #7c3aed;
+
+        }
+
+        /* ===========================================
+   BUTTON CLICK EFFECT
+=========================================== */
+
+        .btn-glow:active {
+
+            transform: scale(.95);
+
+        }
+
+        /* ===========================================
+   HERO TITLE GLOW
+=========================================== */
+
+        .hero h1 {
+
+            text-shadow:
+
+                0 0 10px rgba(56, 189, 248, .4),
+
+                0 0 25px rgba(124, 58, 237, .3);
+
+        }
+
+        /* ===========================================
+   RESULT BOX ANIMATION
+=========================================== */
+
+        .result-box {
+
+            animation: showBox .8s ease;
+
+        }
+
+        @keyframes showBox {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(.9);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+        /* ===========================================
+   CARD BORDER GLOW
+=========================================== */
+
+        .glass-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 22px;
+
+            padding: 2px;
+
+            background: linear-gradient(135deg,
+                    #7c3aed,
+                    #06b6d4,
+                    #38bdf8);
+
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+
+            -webkit-mask-composite: xor;
+
+            mask-composite: exclude;
+
+            opacity: 0;
+
+            transition: .4s;
+
+        }
+
+        .glass-card:hover::before {
+
+            opacity: 1;
+
+        }
+
+        /* ===========================================
+   FOOTER HOVER
+=========================================== */
+
+        footer:hover {
+
+            background: rgba(255, 255, 255, .12);
+
+        }
+
+        /* ===========================================
+   RESPONSIVE
+=========================================== */
+
+        @media(max-width:992px) {
+
+            .hero {
+
+                padding: 70px 20px;
+
+            }
+
+            .hero h1 {
+
+                font-size: 46px;
+
+            }
+
+            .card-body {
+
+                padding: 30px;
+
+            }
+
+            .btn-glow {
+
+                display: block;
+
+                width: 100%;
+
+                margin-bottom: 15px;
+
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            .hero h1 {
+
+                font-size: 38px;
+
+            }
+
+            .hero p {
+
+                font-size: 17px;
+
+            }
+
+            .glass-card h3 {
+
+                font-size: 24px;
+
+            }
+
+            .result-box {
+
+                font-size: 16px;
+
+            }
+
+            .badge-custom {
+
+                display: inline-block;
+
+                margin: 6px;
+
+            }
+
+        }
+
+        @media(max-width:576px) {
+
+            .navbar-brand {
+
+                font-size: 22px;
+
+            }
+
+            .hero {
+
+                padding: 60px 15px;
+
+            }
+
+            .hero h1 {
+
+                font-size: 30px;
+
+            }
+
+            .hero p {
+
+                font-size: 15px;
+
+            }
+
+            .card-body {
+
+                padding: 22px;
+
+            }
+
+            .glass-card {
+
+                border-radius: 18px;
+
+            }
+
+            .result-box {
+
+                padding: 16px;
+
+            }
+
+            footer h5 {
+
+                font-size: 20px;
+
+            }
+
+            footer p {
+
+                font-size: 14px;
+
+            }
+
+        }
+
+        /* ===========================================
+   SMOOTH TRANSITIONS
+=========================================== */
+
+        * {
+
+            transition:
+
+                background .3s,
+
+                color .3s,
+
+                border .3s,
+
+                box-shadow .3s,
+
+                transform .3s;
+
+        }
+
+        /* ===========================================
+   END OF STYLE.CSS
+=========================================== */
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Background Shapes -->
+
+    <div class="blob blob1"></div>
+
+    <div class="blob blob2"></div>
+
+    <div class="blob blob3"></div>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+
+                <i class="fas fa-calendar-check"></i>
+
+                Daily Task Organizer
+
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="container text-center">
+
+            <h1>Organize Your Daily Tasks</h1>
+
+            <p>
+                Learn JavaScript Array Methods with a beautiful modern interface.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Main Content -->
+
+    <div class="container mb-5">
+
+        <!-- Card 1 -->
+
+        <div class="card glass-card mb-4">
+
+            <div class="card-body">
+
+                <h3>
+
+                    <i class="fas fa-sort-alpha-down"></i>
+
+                    Daily Tasks
+
+                </h3>
+
+                <p class="card-text">
+
+                    Arrange your tasks alphabetically using
+                    <strong>sort()</strong> and
+                    <strong>reverse()</strong>.
+
+                </p>
+
+                <button class="btn btn-glow mr-2" onclick="sortAZ()">
+
+                    <i class="fas fa-arrow-down-a-z"></i>
+
+                    Sort A → Z
+
+                </button>
+
+                <button class="btn btn-glow" onclick="sortZA()">
+
+                    <i class="fas fa-arrow-down-z-a"></i>
+
+                    Sort Z → A
+
+                </button>
+
+                <div id="taskResult" class="result-box mt-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="card glass-card mb-4">
+
+            <div class="card-body">
+
+                <h3>
+
+                    <i class="fas fa-clock"></i>
+
+                    Task Time Needed
+
+                </h3>
+
+                <p class="card-text">
+
+                    Sort the task duration using a compare function.
+
+                </p>
+
+                <button class="btn btn-glow mr-2" onclick="sortShortest()">
+
+                    <i class="fas fa-arrow-up-short-wide"></i>
+
+                    Shortest First
+
+                </button>
+
+                <button class="btn btn-glow" onclick="sortLongest()">
+
+                    <i class="fas fa-arrow-down-wide-short"></i>
+
+                    Longest First
+
+                </button>
+
+                <div id="timeResult" class="result-box mt-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="card glass-card mb-4">
+
+            <div class="card-body">
+
+                <h3>
+
+                    <i class="fas fa-tags"></i>
+
+                    Label Every Task Time
+
+                </h3>
+
+                <p class="card-text">
+
+                    Use the JavaScript
+                    <strong>map()</strong>
+                    method to add labels.
+
+                </p>
+
+                <button class="btn btn-glow" onclick="addLabel()">
+
+                    <i class="fas fa-magic"></i>
+
+                    Add Minutes Label
+
+                </button>
+
+                <div id="labelResult" class="result-box mt-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bonus Card -->
+
+        <div class="card glass-card">
+
+            <div class="card-body text-center">
+
+                <h3>
+
+                    <i class="fas fa-lightbulb"></i>
+
+                    JavaScript Methods Used
+
+                </h3>
+
+                <div class="badge-area">
+
+                    <span class="badge badge-pill badge-custom">
+                        sort()
+                    </span>
+
+                    <span class="badge badge-pill badge-custom">
+                        reverse()
+                    </span>
+
+                    <span class="badge badge-pill badge-custom">
+                        sort(compareFunction)
+                    </span>
+
+                    <span class="badge badge-pill badge-custom">
+                        map()
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="container text-center">
+
+            <h5>
+
+                <i class="fas fa-code"></i>
+
+                JavaScript Array Methods Project
+
+            </h5>
+
+            <p>
+
+                Designed with HTML, CSS, Bootstrap & JavaScript
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- JS -->
+
+    <script>
+        // ===============================
+        // DAILY TASK ORGANIZER
+        // ===============================
+
+        const originalTasks = [
+            "Homework",
+            "Breakfast",
+            "Exercise",
+            "Reading",
+            "Packing Bag"
+        ];
+
+        const originalMinutes = [
+            30,
+            15,
+            20,
+            25,
+            10
+        ];
+
+        let tasks = [...originalTasks];
+        let minutes = [...originalMinutes];
+
+        const taskResult = document.getElementById("taskResult");
+        const timeResult = document.getElementById("timeResult");
+        const labelResult = document.getElementById("labelResult");
+
+        // ===============================
+        // INITIAL DISPLAY
+        // ===============================
+
+        showDefault();
+
+        // ===============================
+        // DISPLAY FUNCTIONS
+        // ===============================
+
+        function showDefault() {
+
+            taskResult.innerHTML =
+                "<strong>Tasks:</strong><br>" +
+                tasks.join(" • ");
+
+            timeResult.innerHTML =
+                "<strong>Minutes:</strong><br>" +
+                minutes.join(" • ");
+
+            labelResult.innerHTML =
+                "Click the button to add labels using <b>map()</b>.";
+
+        }
+
+        // ===============================
+        // ANIMATION
+        // ===============================
+
+        function animateBox(box) {
+
+            box.style.opacity = "0";
+
+            box.style.transform = "translateY(20px)";
+
+            setTimeout(function () {
+
+                box.style.transition = ".4s";
+
+                box.style.opacity = "1";
+
+                box.style.transform = "translateY(0px)";
+
+            }, 100);
+
+        }
+
+        // ===============================
+        // SORT A-Z
+        // ===============================
+
+        function sortAZ() {
+
+            tasks.sort();
+
+            taskResult.innerHTML =
+
+                "<strong>Sorted A → Z</strong><br><br>" +
+
+                tasks.join("<br>");
+
+            animateBox(taskResult);
+
+        }
+
+        // ===============================
+        // SORT Z-A
+        // ===============================
+
+        function sortZA() {
+
+            tasks.sort();
+
+            tasks.reverse();
+
+            taskResult.innerHTML =
+
+                "<strong>Sorted Z → A</strong><br><br>" +
+
+                tasks.join("<br>");
+
+            animateBox(taskResult);
+
+        }
+
+        // ===============================
+        // SHORTEST FIRST
+        // ===============================
+
+        function sortShortest() {
+
+            minutes.sort(function (a, b) {
+
+                return a - b;
+
+            });
+
+            timeResult.innerHTML =
+
+                "<strong>Shortest First</strong><br><br>" +
+
+                minutes.join(" Minutes<br>") + " Minutes";
+
+            animateBox(timeResult);
+
+        }
+
+        // ===============================
+        // LONGEST FIRST
+        // ===============================
+
+        function sortLongest() {
+
+            minutes.sort(function (a, b) {
+
+                return b - a;
+
+            });
+
+            timeResult.innerHTML =
+
+                "<strong>Longest First</strong><br><br>" +
+
+                minutes.join(" Minutes<br>") + " Minutes";
+
+            animateBox(timeResult);
+
+        }
+
+        // ===============================
+        // MAP()
+        // ===============================
+
+        function addLabel() {
+
+            let labelled =
+
+                minutes.map(function (time) {
+
+                    return "⏰ " + time + " Minutes";
+
+                });
+
+            labelResult.innerHTML =
+
+                "<strong>Labelled Time</strong><br><br>" +
+
+                labelled.join("<br>");
+
+            animateBox(labelResult);
+
+        }
+
+        // ===============================
+        // LIVE CLOCK
+        // ===============================
+
+        setInterval(function () {
+
+            const now = new Date();
+
+            const time = now.toLocaleTimeString();
+
+            document.title = "Daily Task Organizer | " + time;
+
+        }, 1000);
+
+        // ===============================
+        // RANDOM HERO COLOR
+        // ===============================
+
+        const hero = document.querySelector(".hero h1");
+
+        const colors = [
+
+            "#38bdf8",
+
+            "#7c3aed",
+
+            "#06b6d4",
+
+            "#ffffff"
+
+        ];
+
+        setInterval(function () {
+
+            hero.style.color =
+
+                colors[Math.floor(Math.random() * colors.length)];
+
+        }, 2500);
+
+        // ===============================
+        // CARD APPEAR ANIMATION
+        // ===============================
+
+        const cards = document.querySelectorAll(".glass-card");
+
+        cards.forEach(function (card, index) {
+
+            card.style.opacity = "0";
+
+            card.style.transform = "translateY(50px)";
+
+            setTimeout(function () {
+
+                card.style.transition = ".7s";
+
+                card.style.opacity = "1";
+
+                card.style.transform = "translateY(0px)";
+
+            }, index * 250);
+
+        });
+
+        // ===============================
+        // OPTIONAL RESET FUNCTION
+        // ===============================
+
+        function resetData() {
+
+            tasks = [...originalTasks];
+
+            minutes = [...originalMinutes];
+
+            showDefault();
+
+            animateBox(taskResult);
+
+            animateBox(timeResult);
+
+            animateBox(labelResult);
+
+        }
+
+        // ===============================
+        // WELCOME MESSAGE
+        // ===============================
+
+        setTimeout(function () {
+
+            console.log("Welcome to the Daily Task Organizer!");
+
+        }, 500);
+    </script>
+
+</body>
+
+</html>
