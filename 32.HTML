@@ -1,39 +1,654 @@
-<!--card-->
+<!--bank app part 1-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <title>Bootstrap Utilities.</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advanced Bank App</title>
+
+    <link rel="stylesheet" href="32.css">
+
 </head>
 
+
 <body>
-    |<h1 style="color: orange;text-align: center;">Bootstrap Utilities</h1>
-    <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="lambo.webp" alt="lambo car">
-            <div class="card-body">
-                <h5 class="card-title">Lambo</h5>
-                <p class="card-text">Passionate about driving.</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
+
+
+    <header>
+
+        <h1>🏦 Digital Bank App</h1>
+
+        <p>Secure Smart Banking System</p>
+
+
+        <button id="darkModeBtn">
+            🌙 Dark Mode
+        </button>
+
+
+    </header>
+
+
+
+
+
+    <main>
+
+
+
+
+        <!-- SECURITY FEATURES -->
+
+        <section class="security">
+
+
+            <h2>🔐 Security Features</h2>
+
+
+            <input type="text" id="username" placeholder="Username">
+
+
+            <input type="password" id="pin" placeholder="Enter PIN">
+
+
+            <button id="loginBtn">
+                Login
+            </button>
+
+
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+
+
+            <button id="changePasswordBtn">
+                Change Password
+            </button>
+
+
+            <p id="securityStatus">
+                Account Status: Active
+            </p>
+
+
+
+            <button id="hideBalanceBtn">
+                Hide/Show Balance
+            </button>
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <!-- ACCOUNT FEATURES -->
+
+
+        <section class="account">
+
+
+            <h2>💳 Account Profile</h2>
+
+
+
+            <img id="profilePhoto" src="" alt="User Photo">
+
+
+
+            <h3 id="accountName">
+                User Name
+            </h3>
+
+
+            <p>
+                Account Number:
+                <span id="accountNumber">
+                    00000000
+                </span>
+            </p>
+
+
+
+            <p>
+                Account Type:
+            </p>
+
+
+            <select id="accountType">
+
+                <option>
+                    Savings Account
+                </option>
+
+                <option>
+                    Current Account
+                </option>
+
+
+            </select>
+
+
+
+
+            <p>
+                Status:
+
+                <span id="accountStatus">
+                    Active
+                </span>
+
+            </p>
+
+
+
+            <button id="createAccount">
+
+                Create New Account
+
+            </button>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- MONEY FEATURES -->
+
+
+        <section class="money">
+
+
+            <h2>💰 Money Management</h2>
+
+
+
+            <input type="number" id="amount" placeholder="Enter Amount">
+
+
+
+            <button id="depositBtn">
+                Deposit Money
+            </button>
+
+
+
+            <button id="withdrawBtn">
+                Withdraw Money
+            </button>
+
+
+
+            <input type="text" id="receiverAccount" placeholder="Receiver Account Number">
+
+
+            <button id="transferBtn">
+                Transfer Money
+            </button>
+
+
+
+            <button id="beneficiaryBtn">
+                Add Beneficiary
+            </button>
+
+
+
+
+            <button id="rechargeBtn">
+                Mobile Recharge
+            </button>
+
+
+
+            <button id="billBtn">
+                Pay Bills
+            </button>
+
+
+
+
+            <button id="loanCalculator">
+                Loan Calculator
+            </button>
+
+
+
+            <button id="interestCalculator">
+                Interest Calculator
+            </button>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- DASHBOARD -->
+
+
+        <section class="dashboard">
+
+
+            <h2>📊 Dashboard</h2>
+
+
+
+
+            <div class="cards">
+
+
+
+                <div class="card">
+
+                    <h3>Total Balance</h3>
+
+                    <h1 id="balance">
+
+                        Rs.0
+
+                    </h1>
+
+                </div>
+
+
+
+
+                <div class="card">
+
+                    <h3>Income</h3>
+
+                    <p id="income">
+                        Rs.0
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="card">
+
+                    <h3>Expense</h3>
+
+                    <p id="expense">
+                        Rs.0
+                    </p>
+
+
+                </div>
+
+
+
             </div>
-        </div>
-    </div>
 
-    <br><br>
-    <hr>
-    <br><br>
 
-    <div class="container">
-        <h2>Spinners</h2>
-        <p><code>spinner-border</code></p>
 
-        <div class="spinner-border"></div>
-    </div>
+
+
+            <canvas id="expenseChart">
+
+            </canvas>
+
+
+
+
+
+            <h3>
+                Monthly Spending
+            </h3>
+
+
+            <p id="monthlySpend">
+
+                Rs.0
+
+            </p>
+
+
+
+
+
+
+            <input type="search" id="searchTransaction" placeholder="Search Transaction">
+
+
+            <button id="filterDate">
+
+                Filter By Date
+
+            </button>
+
+
+
+            <button id="downloadStatement">
+
+                Download Statement
+
+            </button>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- TRANSACTION -->
+
+
+        <section class="transactions">
+
+
+            <h2>🧾 Transactions</h2>
+
+
+
+            <table>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Transaction ID
+                        </th>
+
+
+                        <th>
+                            Category
+                        </th>
+
+
+                        <th>
+                            Amount
+                        </th>
+
+
+                        <th>
+                            Status
+                        </th>
+
+
+                        <th>
+                            Date
+                        </th>
+
+
+                    </tr>
+
+
+                </thead>
+
+
+
+
+                <tbody id="transactionList">
+
+
+                </tbody>
+
+
+
+            </table>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <!-- CATEGORY -->
+
+
+        <section>
+
+
+            <h2>
+                Transaction Categories
+            </h2>
+
+
+
+            <ul>
+
+
+                <li>🍔 Food</li>
+
+                <li>🛒 Shopping</li>
+
+                <li>💡 Bills</li>
+
+                <li>🎓 Education</li>
+
+
+            </ul>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- NOTIFICATIONS -->
+
+
+        <section class="notifications">
+
+
+            <h2>🔔 Notifications</h2>
+
+
+
+            <div id="notificationBox">
+
+
+                <p>
+                    💰 Money Received
+                </p>
+
+
+                <p>
+                    ⚠️ Low Balance Alert
+                </p>
+
+
+                <p>
+                    🔔 Transaction Alert
+                </p>
+
+
+                <p>
+                    🎁 Offers Available
+                </p>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- APP UI -->
+
+
+        <section class="ui">
+
+
+            <h2>🌙 App Features</h2>
+
+
+            <ul>
+
+
+                <li>
+                    Glassmorphism Design
+                </li>
+
+
+                <li>
+                    Animated Cards
+                </li>
+
+
+                <li>
+                    Loading Animation
+                </li>
+
+
+                <li>
+                    Mobile App Style Layout
+                </li>
+
+
+
+                <li>
+                    Responsive Design
+                </li>
+
+
+            </ul>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- DEVELOPER -->
+
+
+        <section class="developer">
+
+
+            <h2>
+                👨‍💻 Developer Features
+            </h2>
+
+
+
+            <ul>
+
+
+                <li>
+                    LocalStorage Database
+                </li>
+
+
+                <li>
+                    JSON Database System
+                </li>
+
+
+                <li>
+                    API Connection Ready
+                </li>
+
+
+                <li>
+                    Chart.js Integration
+                </li>
+
+
+                <li>
+                    Responsive Mobile Design
+                </li>
+
+
+
+            </ul>
+
+
+
+        </section>
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+    <footer>
+
+        <p>
+            © 2026 Digital Bank App
+        </p>
+
+    </footer>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="32.js"></script>
+
+
+
 </body>
 
 </html>
