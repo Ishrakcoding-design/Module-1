@@ -1,50 +1,17 @@
-city = input("Enter your city name: ")
-temp = float(input("Enter today's temperature in C: "))
+# Function to find Fibonacci number using recursion
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
 
+# User input
+terms = int(input("🤔 How many Fibonacci babies do you want to see? "))
 
+# Print Fibonacci series
+print("🚀 Fibonacci Army is arriving...")
 
-print("City:", city)
-print("Temperature:", temp)
+for i in range(terms):
+    print(fibonacci(i), end=" ")
 
-
-
-temp = float(input("Enter today's temperature in C: "))
-
-
-
-if temp > 35:
-    print("Warning: It is very hot today!")
-
-
-
-if temp > 25:
-    print("Great day to go outside!")
-else:
-    print("Grab a jacket before you go out!")
-
-
-
-if temp > 35:
-    print("Weather: Scorching Hot")
-
-elif temp > 25:
-    print("Weather: Warm and Sunny")
-
-elif temp > 15:
-    print("Weather: Cool and Breezy")
-
-else:
-    print("Weather: Cold - stay warm!")
-
-
-
-import datetime
-
-import calendar
-
-now = datetime.datetime.now()
-
-print("City:", city)
-print("Time now:", now)
-
-print(calendar.calendar(now.year))
+print("\n🎉 Boom! Mission Completed.")
